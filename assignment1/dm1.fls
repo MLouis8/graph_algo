@@ -1,7 +1,7 @@
-PWD /home/louis/Documents/graphs
+PWD /home/louis/Documents/graph_algo/assignment1
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/louis/Documents/graphs/dm1.tex
+INPUT /home/louis/Documents/graph_algo/assignment1/dm1.tex
 OUTPUT dm1.log
 INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texmf-dist/tex/latex/base/article.cls

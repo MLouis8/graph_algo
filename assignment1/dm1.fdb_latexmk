@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1700996221 "/home/louis/Documents/graphs/dm1.tex" "dm1.pdf" "dm1" 1700996222 0
-  "/home/louis/Documents/graphs/dm1.tex" 1700996221 11793 4146b782709502c434da884af411c004 ""
+["pdflatex"] 1701013344 "/home/louis/Documents/graph_algo/assignment1/dm1.tex" "dm1.pdf" "dm1" 1701013345 0
+  "/home/louis/Documents/graph_algo/assignment1/dm1.tex" 1701013343 12507 3d1e81cd512f6becf051be76df59ae25 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1689853683 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1689853683 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1689853683 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -152,8 +152,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1689853683 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1699604671 4486191 6ba749a62cf6919c120e8797520cc0a3 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1699525129 6768051 e82aaf471c9cd1924d9f2d060939697a ""
-  "dm1.aux" 1700996222 636 bee3b21e16878e03d8e7190c10d66a53 "pdflatex"
-  "dm1.tex" 1700996221 11793 4146b782709502c434da884af411c004 ""
+  "dm1.aux" 1701013345 636 bee3b21e16878e03d8e7190c10d66a53 "pdflatex"
+  "dm1.tex" 1701013343 12507 3d1e81cd512f6becf051be76df59ae25 ""
   (generated)
   "dm1.aux"
   "dm1.log"

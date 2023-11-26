@@ -198,8 +198,8 @@ In every question that mentions colourating graphs, we can assume that colouring
     Let us now attack the general k-COLOUR problem.
 \end{Question}
 \begin{enumerate}[(a)]
-    \item $Y = X \cup $
-    \item Let's derive an algorithm that solves 3-COLOUR:
+    \item Let's compute all subset of vertices $Y \subseteq V (G)$ such that $\chi(G[Y]) \leq j + 1$. We iterate over all subsets $Y$ of $V(G)$ ordered following their size. If $\chi(G[Y]) \leq j$ then $\chi(G[Y]) \leq j+1$ else we remove one element $y$ from $Y$ and obtain $Y' := Y\backslash \{y\}$. If $\chi(G[Y']) \leq j$ then $\chi(G[Y]) \leq j+1$. If $\chi(G[Y']) \leq j+1$ then we check if adding $y$ with any of the $j+1$ colours breaks the colouring. If it doesn't then $\chi(G[Y]) \leq j+1$. We repeat this with every element of $Y$. Computing all subsets of $V(G)$ costs $\sum\limits_{t=0}^{n}\binom{n}{t}$ oplimierations and removing each element once is linear. So we could compute all subsets in time $O^*(3^n)$.
+    \item Let's derive from above an algorithm that solves 3-COLOUR:
     \begin{algorithm}[H]
         \caption{$O(3^n)$ algorithm to solve 3-COL problem}    
         \begin{algorithmic}
