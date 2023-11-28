@@ -198,13 +198,41 @@ In every question that mentions colourating graphs, we can assume that colouring
     Let us now attack the general k-COLOUR problem.
 \end{Question}
 \begin{enumerate}[(a)]
-    \item Let's compute all subset of vertices $Y \subseteq V (G)$ such that $\chi(G[Y]) \leq j + 1$. We iterate over all subsets $Y$ of $V(G)$ ordered following their size. If $\chi(G[Y]) \leq j$ then $\chi(G[Y]) \leq j+1$ else we remove one element $y$ from $Y$ and obtain $Y' := Y\backslash \{y\}$. If $\chi(G[Y']) \leq j$ then $\chi(G[Y]) \leq j+1$. If $\chi(G[Y']) \leq j+1$ then we check if adding $y$ with any of the $j+1$ colours breaks the colouring. If it doesn't then $\chi(G[Y]) \leq j+1$. We repeat this with every element of $Y$. Computing all subsets of $V(G)$ costs $\sum\limits_{t=0}^{n}\binom{n}{t}$ oplimierations and removing each element once is linear. So we could compute all subsets in time $O^*(3^n)$.
-    \item Let's derive from above an algorithm that solves 3-COLOUR:
+    \item Let $j \in \mathbb{N}$. Let $W:=\{X \subseteq V(G) \ | \ \chi(G[X]) \leq j\}$. Let's compute all subset of vertices $Y \subseteq V (G)$ such that $\chi(G[Y]) \leq j + 1$. We iterate over all subsets $Y$ of $V(G)$ ordered according to the size (with $|Y|=t, 0 \leq t \leq n$), \emph{Complexity:} $\sum\limits_{t=0}^{n}\binom{n}{t}$ (all kinds of way of selecting $t$ objects among $n$ with $t$ from $0$ to $n$). We then iterate over all subsets $Y'$ of $Y$, \emph{Complexity:} $2^t$. If there exists $Y'$ such that $Y' \in W$ and such that $\forall y\in Y\backslash Y'$ assigning to $y$ the colour $j+1$ extends the proper colouring to $Y$ then $\chi(G[Y]) \leq j+1$.
+    \item Let's derive from above an algorithm that solves $k$-COLOUR:
     \begin{algorithm}[H]
-        \caption{$O(3^n)$ algorithm to solve 3-COL problem}    
+        \caption{$O(3^n)$ algorithm to solve $k$-COL problem}    
         \begin{algorithmic}
-            \State colour the graph
+            \State $i \gets 1$
+            \State $X \gets \{\{(v, 1)\}\ |\ v\in V(G)\}$
+            \While{$i \leq k$}
+                \State $flag \gets false$
+                \If{$i=k$}
+                    \State $flag \gets true$
+                \EndIf
+                \For{$Y \subseteq ordered(\mathcal{P}(V(G)))$}
+                    \For{$Y' \subseteq \mathcal{P}(X)$}
+                        \If{$is\_in(Y', X)$}
+                            \ForAll{$y\in Y\backslash Y'$}
+                                \State $Y'.add((y, i+1))$
+                            \EndFor
+                            \If{$is\_proper\_colouring(Y')$}
+                                \State $X.add(Y')$
+                                \State $flag \gets false$
+                                \State break
+                            \EndIf
+                        \EndIf
+                    \EndFor
+                    \If{$flag$}
+                        \State \Return false
+                    \EndIf
+                \EndFor
+                \State $i \gets i+1$
+            \EndWhile
+            \State \Return true, X
         \end{algorithmic}
     \end{algorithm}
+    \emph{Note:} function $is\_in(Y', X)$ returns true if there exists an element of $X$ such that $\forall y\in Y',\ \exists !\ x\in X$ such that $x[0] = y$. It returns false otherwise.
+    Its space complexity is $O^*(2^n)$ since we only store $X$ which is at most of size $2\cdot |\mathcal{P}(V(G))|$.
 \end{enumerate}
 \end{document}
